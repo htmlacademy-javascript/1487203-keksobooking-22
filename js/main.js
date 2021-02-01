@@ -5,10 +5,10 @@ let getRandomInteger = function (min, max) {
   let randomInt = Math.random()*(to-from)+from;
   
   if (min===max) {
-  	randomInt = min;
+    randomInt = min;
   }
   if (min>max) {
-  	randomInt = Math.random()*(from-to)+to;
+    randomInt = Math.random()*(from-to)+to;
   }
    return Math.floor(randomInt);
 }
@@ -19,10 +19,10 @@ let getRandomNumber = function (min, max, roundingDegree) {
   let roundedValue  = Math.round(Math.pow(10, roundingDegree)*randomNum)/Math.pow(10, roundingDegree);
   
   if (min===max) {
-  	randomNum = min;
+    randomNum = min;
   }
   if (min>max) {
-  	randomNum = Math.random()*(min-max)+max;
+    randomNum = Math.random()*(min-max)+max;
   }
   return (roundedValue);
 }
