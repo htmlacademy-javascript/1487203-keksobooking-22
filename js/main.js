@@ -1,28 +1,28 @@
 //Функция,выдающая целочисленные значения в заданном интервале
-let getRandomNumber = function (a, b) {
-  let c = Math.ceil(a);
-  let d = Math.floor(b)+1;
-  let n = Math.random()*(d-c)+c;
-  return Math.floor(n);
+let getRandomInteger = function (min, max) {
+  let from = Math.ceil(min);
+  let to = Math.floor(max)+1;
+  let randomInt = Math.random()*(to-from)+from;
   
-  if (a=b) {
-  	n = a;
+  if (min===max) {
+  	randomInt = min;
   }
-  if (a>b) {
-  	n = Math.random()*(c-d)+d;
+  if (min>max) {
+  	randomInt = Math.random()*(from-to)+to;
   }
+   return Math.floor(randomInt);
 }
 
 //Функция,выдающая значения в заданном интервале с известным кол-вом знаков после запятой
-let getRandomNumber = function (a, b, k) {
-  let m = Math.random()*(b-a)+a;
-  let n = Math.round(Math.pow(10, k)*m)/Math.pow(10, k);
-  return (n);
+let getRandomNumber = function (min, max, roundingDegree) {
+  let randomNum = Math.random()*(max-min)+min;
+  let roundedValue  = Math.round(Math.pow(10, roundingDegree)*randomNum)/Math.pow(10, roundingDegree);
   
-  if (a=b) {
-  	n = a;
+  if (min===max) {
+  	randomNum = min;
   }
-  if (a>b) {
-  	m = Math.random()*(c-d)+d;
+  if (min>max) {
+  	randomNum = Math.random()*(min-max)+max;
   }
+  return (roundedValue);
 }
