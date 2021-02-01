@@ -10,7 +10,7 @@ let getRandomInteger = function (min, max) {
   if (min>max) {
     randomInt = Math.random()*(from-to)+to;
   }
-   return Math.floor(randomInt);
+  return Math.floor(randomInt);
 }
 
 //Функция,выдающая значения в заданном интервале с известным кол-вом знаков после запятой
@@ -26,3 +26,6 @@ let getRandomNumber = function (min, max, roundingDegree) {
   }
   return (roundedValue);
 }
+
+getRandomInteger(2, 5);
+getRandomNumber(1, 6, 2);
