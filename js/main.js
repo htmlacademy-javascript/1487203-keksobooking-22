@@ -12,7 +12,6 @@ let getRandomNumber = function (min, max, roundingDegree) {
   return (roundedValue);
 }
 
-const positiveNum = getRandomNumber(1, 10);
 const ADVERTISEMENTS_COUNT = 10;
 
 const TYPES = [
@@ -53,10 +52,10 @@ const createAdvertisement =() => {
 
   const title = 'Добро пожаловать!';
   const address = getRandomNumber(35.65000, 35.70000, 5) + "," + getRandomNumber(139.70000, 139.80000, 5);
-  const price = positiveNum;
+  const price = getRandomNumber(1, 10);
   const type = getRandomArrayElement(TYPES);
-  const rooms = positiveNum;
-  const guests = positiveNum;
+  const rooms = getRandomNumber(1, 10);
+  const guests = getRandomNumber(1, 10);
   const checkin = getRandomArrayElement(TIME);
   const checkout = getRandomArrayElement(TIME);
   const features = FEATURES.splice(0, getRandomInteger(1, FEATURES.length));
