@@ -12,7 +12,8 @@ let getRandomNumber = function (min, max, roundingDegree) {
   return (roundedValue);
 }
 
-const positiveNum = getRandomNumber(1, Infinity);
+const positiveNum = getRandomNumber(1, 10);
+const ADVERTISEMENTS_COUNT = 10;
 
 const TYPES = [
   'palace',
@@ -47,28 +48,27 @@ const getRandomArrayElement = (elemets) => {
 };
 
 const createAdvertisement =() => {
-  let avatar = 'img/avatars/user0' + getRandomInteger(1, 8) + '.png';
+  const avatar = 'img/avatars/user0' + getRandomInteger(1, 8) + '.png';
   author: 'avatar';
 
-  let title = 'Добро пожаловать!';
-  let address = getRandomNumber(35.65000, 35.70000, 5) + "," + getRandomNumber(139.70000, 139.80000, 5);
-  let price = positiveNum;
-  let type = getRandomArrayElement(TYPES);
-  let rooms = positiveNum;
-  let guests = positiveNum;
-  let checkin = getRandomArrayElement(TIME);
-  let checkout = getRandomArrayElement(TIME);
-  let features = FEATURES.splice(0, getRandomInteger(1, FEATURES.length));
-  let description = 'Светло,уютно и идеально для отдыха и командировок!';
-  let photos = PHOTOS.splice(0, getRandomInteger(1, PHOTOS.length));
+  const title = 'Добро пожаловать!';
+  const address = getRandomNumber(35.65000, 35.70000, 5) + "," + getRandomNumber(139.70000, 139.80000, 5);
+  const price = positiveNum;
+  const type = getRandomArrayElement(TYPES);
+  const rooms = positiveNum;
+  const guests = positiveNum;
+  const checkin = getRandomArrayElement(TIME);
+  const checkout = getRandomArrayElement(TIME);
+  const features = FEATURES.splice(0, getRandomInteger(1, FEATURES.length));
+  const description = 'Светло,уютно и идеально для отдыха и командировок!';
+  const photos = PHOTOS.splice(0, getRandomInteger(1, PHOTOS.length));
   offer: title+ '' + address + '' + price + '' + type + '' + rooms + '' + guests + '' + checkin +
    '' + checkout + '' + features + '' + description + '' + photos;
 
-  let x = getRandomNumber(35.65000, 35.70000, 5);
-  let y = getRandomNumber(139.70000, 139.80000, 5);
-  location: getRandomNumber(35.65000, 35.70000, 5) + ":" + getRandomNumber(139.70000, 139.80000, 5);
+  const x = getRandomNumber(35.65, 35.70, 2);
+  const y = getRandomNumber(139.70, 139.80, 2);
+  location: x + ":" + y;
 }
-const ADVERTISEMENTS_COUNT = 10;
 
 const freshAdvertisements = new Array(ADVERTISEMENTS_COUNT).fill(null).map(() => createAdvertisement());
 
