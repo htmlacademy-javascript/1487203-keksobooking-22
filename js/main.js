@@ -42,6 +42,12 @@ const PHOTOS = [
   'http://o0.github.io/assets/images/tokyo/hotel3.jpg',
 ];
 
+const DESCRIPTIONS = [
+  'Светло,уютно и идеально для отдыха и командировок!',
+  'Проведите незабываемые выходные с комфортом!',
+  'Комфортное жильё по доступной цене!',
+];
+
 const getRandomArrayElement = (elemets) => {
   return elemets[getRandomInteger(0, elemets.length - 1)];
 };
@@ -59,7 +65,7 @@ const createAdvertisement =() => {
   const checkin = getRandomArrayElement(TIME);
   const checkout = getRandomArrayElement(TIME);
   const features = FEATURES.splice(0, getRandomInteger(1, FEATURES.length));
-  const description = 'Светло,уютно и идеально для отдыха и командировок!';
+  const description = getRandomArrayElement(DESCRIPTIONS);
   const photos = PHOTOS.splice(0, getRandomInteger(1, PHOTOS.length));
   offer: title+ '' + address + '' + price + '' + type + '' + rooms + '' + guests + '' + checkin +
    '' + checkout + '' + features + '' + description + '' + photos;
