@@ -1,33 +1,51 @@
-import {getRandomInteger, getRandomNumber, getRandomArrayElement} from './util.js';
-import {TYPES, TIME, FEATURES, PHOTOS, DESCRIPTIONS, ADVERTISEMENTS_COUNT} from './advertisements-data.js';
+import {getRandomInteger, getRandomNumber, getRandomArrayElement, shuffleArr} from './util.js';
+import {TYPES, FEATURES, PHOTOS, DESCRIPTIONS, ADVERTISEMENTS_COUNT, latitudeMin, latitudeMax, longitudeMin, longitudeMax, roundingDegree} from './advertisements-data.js';
 
-const createAdvertisement =() => {
-  let avatarNum = getRandomInteger(1, 8);
-  const avatar = 'img/avatars/user0 ${avatarNum} .png';
-  author: 'avatar';
 
+const createAdvertisement = function() {
+  const avatarNum = getRandomInteger(1, 8);
   const title = 'Добро пожаловать!';
-  const address = 'x ${,} y';
-  const price = getRandomNumber(1, 10);
+  const x = getRandomNumber(latitudeMin, latitudeMax, roundingDegree);
+  const y = getRandomNumber(longitudeMin, longitudeMax, roundingDegree);
+  const address = `${x},${y}`;
+  const price = getRandomInteger(1, 10, 0);
   const type = getRandomArrayElement(TYPES);
-  const rooms = getRandomNumber(1, 10);
-  const guests = getRandomNumber(1, 10);
-  const checkin = getRandomArrayElement(TIME);
-  const checkout = getRandomArrayElement(TIME);
-  const features = FEATURES.splice(0, getRandomInteger(1, FEATURES.length));
+  const rooms = getRandomInteger(1, 10, 0);
+  const guests = getRandomInteger(1, 10, 0);
+  const checkIn = `${getRandomInteger(12, 14)}:00`;
+  const checkOut = `${getRandomInteger(12, 14)}:00`;
+  const shuffledFeatures = shuffleArr(FEATURES);
+  const features = shuffledFeatures.splice(0, getRandomInteger(1, FEATURES.length));
   const description = getRandomArrayElement(DESCRIPTIONS);
-
-  const shuffledPhotos = shuffle(PHOTOS);
+  const shuffledPhotos = shuffleArr(PHOTOS);
   const photos = shuffledPhotos.splice(0, getRandomInteger(1, PHOTOS.length));
-  offer: 'title ${address} ${price} ${type} ${rooms} ${guests} ${checkin} ${checkout} ${features} ${description} photos';
 
-  const x = getRandomNumber(35.65, 35.70, 2);
-  const y = getRandomNumber(139.70, 139.80, 2);
-  location: 'x ${:} y';
+  const author = {
+    avatar: `img/avatars/user0${avatarNum}.png`,
+  }
+
+  const  offer = {
+    title: title,
+    address: address,
+    price: price,
+    type: type,
+    rooms: rooms,
+    guests: guests,
+    checkin: checkIn,
+    checkout: checkOut,
+    features: features,
+    description: description,
+    photos: photos,
+  }
+
+  const  location = {
+    x: x,
+    y: y,
+};
+  const advertisement = [author, offer, location];
+  return advertisement;
 }
 
 const freshAdvertisements = new Array(ADVERTISEMENTS_COUNT).fill(null).map(() => createAdvertisement());
 
-console.log(freshAdvertisements);
-
-export {freshAdvertisements};
+export {freshAdvertisements, createAdvertisement};
