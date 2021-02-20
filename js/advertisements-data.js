@@ -16,7 +16,7 @@ const FEATURES = [
   'conditioner',
 ];
 
-const photosArrayLength = getRandomInteger(1, 3);
+const photosArrayLength = getRandomInteger(1, 5);
 const getPhotosArray = function() {
   const PHOTOS = [];
   for(let i = 1; i <= photosArrayLength; i++) {
