@@ -1,3 +1,5 @@
+import {getRandomInteger} from './util.js';
+
 const TYPES = [
   'palace',
   'flat',
@@ -14,17 +16,14 @@ const FEATURES = [
   'conditioner',
 ];
 
-const PHOTOS = [
-  'http://o0.github.io/assets/images/tokyo/hotel1.jpg',
-  'http://o0.github.io/assets/images/tokyo/hotel2.jpg',
-  'http://o0.github.io/assets/images/tokyo/hotel3.jpg',
-];
-
+const photosArrayLength = getRandomInteger(1, 3);
 const getPhotosArray = function() {
-  for(let i = 1; i <= 3; i++) {
+  const PHOTOS = [];
+  for(let i = 1; i <= photosArrayLength; i++) {
     const photoLink = `http://o0.github.io/assets/images/tokyo/hotel${i}.jpg`;
-    PHOTOS.push();
+    PHOTOS.push(photoLink);
   }
+  return PHOTOS;
 };
 
 const DESCRIPTIONS = [
@@ -41,4 +40,4 @@ const roundingDegree =  2;
 
 const ADVERTISEMENTS_COUNT = 10;
 
-export {TYPES, FEATURES, PHOTOS, DESCRIPTIONS, ADVERTISEMENTS_COUNT, latitudeMin, latitudeMax, longitudeMin, longitudeMax, roundingDegree} ;
+export {TYPES, FEATURES, getPhotosArray,photosArrayLength, DESCRIPTIONS, ADVERTISEMENTS_COUNT, latitudeMin, latitudeMax, longitudeMin, longitudeMax, roundingDegree} ;
