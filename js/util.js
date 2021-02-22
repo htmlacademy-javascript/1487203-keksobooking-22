@@ -20,10 +20,9 @@ const getRandomArrayElement = (elemets) => {
 
 //Функция,генерирующая массив случайных значений из заданного массива
 const shuffleArr = function (arr) {
-  for (var j, x, i = arr.length; i; j = parseInt(Math.random() * i),
-      x = arr[--i], arr[i] = arr[j], arr[j] = x);
-    return arr;
-  };
+  for (let j, x, i = arr.length; i; j = parseInt(Math.random() * i), x = arr[--i], arr[i] = arr[j], arr[j] = x);
+  return arr;
+};
 
 //Функция создающая элемент с заданными тегом,классом и текстом
 const makeElement = function (tagName, className, text) {

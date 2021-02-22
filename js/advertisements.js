@@ -41,7 +41,7 @@ const createAdvertisement = function() {
   const  location = {
     x: x,
     y: y,
-};
+  };
   const advertisement = {author, offer, location};
   return advertisement;
 }
