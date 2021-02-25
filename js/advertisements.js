@@ -1,12 +1,16 @@
 import {getRandomInteger, getRandomNumber, getRandomArrayElement, shuffleArr} from './util.js';
-import {TYPES, FEATURES, getPhotosArray, DESCRIPTIONS, ADVERTISEMENTS_COUNT, latitudeMin, latitudeMax, longitudeMin, longitudeMax, roundingDegree} from './advertisements-data.js';
+import {AVATAR_INDEX_MIN, AVATAR_INDEX_MAX, TYPES, FEATURES, getPhotosArray, DESCRIPTIONS, ADVERTISEMENTS_COUNT,  LATITUDE_MIN, LATITUDE_MAX, LONGITUDE_MIN, LONGITUDE_MAX, ROUNDING_DEGREE} from './advertisements-data.js';
 
 
 const createAdvertisement = function() {
-  const avatarNum = getRandomInteger(1, 8);
-  const title = 'Добро пожаловать!';
-  const x = getRandomNumber(latitudeMin, latitudeMax, roundingDegree);
-  const y = getRandomNumber(longitudeMin, longitudeMax, roundingDegree);
+  const x = getRandomNumber(LATITUDE_MIN, LATITUDE_MAX, ROUNDING_DEGREE);
+  const y = getRandomNumber(LONGITUDE_MIN, LONGITUDE_MAX, ROUNDING_DEGREE);
+  
+  const avatarIndex = getRandomInteger(AVATAR_INDEX_MIN, AVATAR_INDEX_MAX);
+  const author = {
+    avatar: `img/avatars/user0${avatarIndex}.png`,
+  }
+  
   const address = `${x},${y}`;
   const price = getRandomInteger(1, 100, 0)*10;
   const type = getRandomArrayElement(TYPES);
@@ -19,13 +23,8 @@ const createAdvertisement = function() {
   const description = getRandomArrayElement(DESCRIPTIONS);
   const shuffledPhotos = shuffleArr(getPhotosArray());
   const photos = shuffledPhotos.splice(0, getRandomInteger(1, getPhotosArray().length));
-
-  const author = {
-    avatar: `img/avatars/user0${avatarNum}.png`,
-  }
-
   const  offer = {
-    title: title,
+    title: 'Добро пожаловать!',
     address: address,
     price: price,
     type: type,

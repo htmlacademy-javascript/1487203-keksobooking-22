@@ -1,5 +1,21 @@
 import {getRandomInteger} from './util.js';
 
+const AVATAR_INDEX_MIN = 1;
+const AVATAR_INDEX_MAX = 8;
+
+const LATITUDE_MIN = 35.65;
+const LATITUDE_MAX = 35.70;
+const LONGITUDE_MIN = 139.7;
+const LONGITUDE_MAX = 139.8;
+const ROUNDING_DEGREE =  2;
+
+const ADVERTISEMENTS_COUNT = 10;
+
+const MIN_LENGTH_PHOTO_ARRAY = 1;
+const MAX_LENGTH_PHOTO_ARRAY = 5;
+const PHOTO_LENGTH = getRandomInteger(MIN_LENGTH_PHOTO_ARRAY, MAX_LENGTH_PHOTO_ARRAY);
+const PHOTOS = (PHOTO_LENGTH) => Array.from({length: PHOTO_LENGTH}, (('', index) => 'http://o0.github.io/assets/images/tokyo/hotel'+(index+1)+'.jpg');
+
 const TYPES = [
   'palace',
   'flat',
@@ -16,28 +32,10 @@ const FEATURES = [
   'conditioner',
 ];
 
-const photosArrayLength = getRandomInteger(1, 5);
-const getPhotosArray = function() {
-  const PHOTOS = [];
-  for(let i = 1; i <= photosArrayLength; i++) {
-    const photoLink = `http://o0.github.io/assets/images/tokyo/hotel${i}.jpg`;
-    PHOTOS.push(photoLink);
-  }
-  return PHOTOS;
-};
-
 const DESCRIPTIONS = [
   'Светло,уютно и идеально для отдыха и командировок!',
   'Проведите незабываемые выходные с комфортом!',
   'Комфортное жильё по доступной цене!',
 ];
 
-const latitudeMin = 35.65;
-const latitudeMax = 35.70;
-const longitudeMin = 139.7;
-const longitudeMax = 139.8;
-const roundingDegree =  2;
-
-const ADVERTISEMENTS_COUNT = 10;
-
-export {TYPES, FEATURES, getPhotosArray,photosArrayLength, DESCRIPTIONS, ADVERTISEMENTS_COUNT, latitudeMin, latitudeMax, longitudeMin, longitudeMax, roundingDegree} ;
+export {AVATAR_INDEX_MIN, AVATAR_INDEX_MAX, TYPES, FEATURES, getPhotosArray,photosArrayLength, DESCRIPTIONS, ADVERTISEMENTS_COUNT, LATITUDE_MIN, LATITUDE_MAX, LONGITUDE_MIN, LONGITUDE_MAX, ROUNDING_DEGREE} ;
