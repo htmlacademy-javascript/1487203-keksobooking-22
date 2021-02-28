@@ -23,6 +23,12 @@ const TYPES = [
   'bungalow',
 ];
 
+const TIME = [
+  '12:00',
+  '13:00',
+  '14:00',
+];
+
 const FEATURES = [
   'wifi',
   'dishwasher',
@@ -32,6 +38,12 @@ const FEATURES = [
   'conditioner',
 ];
 
+const PHOTOS = [
+  'http://o0.github.io/assets/images/tokyo/hotel1.jpg',
+  'http://o0.github.io/assets/images/tokyo/hotel2.jpg',
+  'http://o0.github.io/assets/images/tokyo/hotel3.jpg',
+];
+
 const DESCRIPTIONS = [
   'Светло,уютно и идеально для отдыха и командировок!',
   'Проведите незабываемые выходные с комфортом!',
@@ -39,3 +51,4 @@ const DESCRIPTIONS = [
 ];
 
 export {AVATAR_INDEX_MIN, AVATAR_INDEX_MAX, TYPES, FEATURES, getPhotosArray,photosArrayLength, DESCRIPTIONS, ADVERTISEMENTS_COUNT, LATITUDE_MIN, LATITUDE_MAX, LONGITUDE_MIN, LONGITUDE_MAX, ROUNDING_DEGREE} ;
+
