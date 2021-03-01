@@ -49,6 +49,7 @@ const createAdvert = function (offerArr) {
     }
     let capacityText= document.createTextNode(wordSet);
     return capacityText;
+  };
   capacity.appendChild(getCapacityText());
   listItem.appendChild(capacity);
 
@@ -89,7 +90,6 @@ const createAdverts = function(advertisementsArray) {
     const popupOffer = createAdvert(item);
     cards.appendChild(popupOffer);
   });
-  }
   return (cards);
 };
 
