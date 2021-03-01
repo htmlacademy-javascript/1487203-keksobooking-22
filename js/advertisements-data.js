@@ -32,11 +32,13 @@ const FEATURES = [
   'conditioner',
 ];
 
+
 const DESCRIPTIONS = [
   'Светло,уютно и идеально для отдыха и командировок!',
   'Проведите незабываемые выходные с комфортом!',
   'Комфортное жильё по доступной цене!',
 ];
+
 
 export {AVATAR_INDEX_MIN, 
   AVATAR_INDEX_MAX, 
@@ -51,3 +53,4 @@ export {AVATAR_INDEX_MIN,
   LONGITUDE_MIN, 
   LONGITUDE_MAX, 
   ROUNDING_DEGREE} ;
+

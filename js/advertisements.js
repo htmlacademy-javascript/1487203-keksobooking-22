@@ -48,3 +48,4 @@ const createAdvertisement = function() {
 const freshAdvertisements = new Array(ADVERTISEMENTS_COUNT).fill(null).map(() => createAdvertisement());
 
 export {freshAdvertisements, createAdvertisement};
+
